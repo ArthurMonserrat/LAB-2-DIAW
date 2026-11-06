@@ -1,0 +1,37 @@
+@startuml
+class Account {Long id
+String username
+String passwordHash
+String role
+String name
+String cpf
+String rg
+String address
+String profession
+String agentType}
+class Income {Long id
+String employer
+BigDecimal monthlyAmount}
+class Car {Long id
+String registration
+int year
+String brand
+String model
+String plate
+String ownerType
+int dailyRate}
+class Rental {Long id
+LocalDate startDate
+LocalDate endDate
+Status status
+String financialOpinion
+String reviewedBy}
+class CreditAgreement {Long id
+BigDecimal amount
+int installments}
+Account "1" -- "0..3" Income
+Account "1" -- "0..*" Rental : cliente
+Car "1" -- "0..*" Rental
+Rental "1" -- "0..1" CreditAgreement
+Account "1" -- "0..*" CreditAgreement : banco
+@enduml

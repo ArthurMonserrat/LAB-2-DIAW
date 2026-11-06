@@ -1,0 +1,17 @@
+@startuml
+skinparam componentStyle rectangle
+actor "Cliente / Agente" as User
+component "React + Vite
+Front-end" as Front
+component "Spring Boot 4.0.x
+API REST MVC" as API
+component "Spring Security
+HTTP Basic + BCrypt" as Sec
+component "JPA Repositories" as ORM
+database "Supabase PostgreSQL" as DB
+User --> Front
+Front --> API : JSON + Authorization
+API --> Sec
+API --> ORM
+ORM --> DB
+@enduml

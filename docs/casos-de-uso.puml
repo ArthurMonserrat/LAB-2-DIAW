@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+actor Cliente
+actor "Agente (empresa)" as Empresa
+actor "Agente (banco)" as Banco
+rectangle "VOLANTE" {
+ usecase "Cadastrar / autenticar" as UC1
+ usecase "Gerenciar dados do cliente" as UC2
+ usecase "Consultar veículos" as UC3
+ usecase "Criar / alterar / cancelar pedido" as UC4
+ usecase "Consultar status" as UC5
+ usecase "Analisar financeiramente" as UC6
+ usecase "Aprovar / recusar pedido" as UC7
+ usecase "Executar contrato" as UC8
+ usecase "Associar crédito" as UC9
+}
+Cliente --> UC1
+Cliente --> UC2
+Cliente --> UC3
+Cliente --> UC4
+Cliente --> UC5
+Empresa --> UC1
+Empresa --> UC6
+Empresa --> UC7
+Empresa --> UC8
+Banco --> UC1
+Banco --> UC6
+Banco --> UC7
+Banco --> UC8
+Banco --> UC9
+UC7 ..> UC6 : <<include>>
+@enduml

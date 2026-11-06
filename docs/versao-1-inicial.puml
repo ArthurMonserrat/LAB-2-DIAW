@@ -1,0 +1,9 @@
+@startuml
+class Cliente
+class Agente
+class Automovel
+class Pedido
+Cliente "1" -- "*" Pedido
+Pedido "*" -- "1" Automovel
+Agente ..> Pedido : avalia
+@enduml

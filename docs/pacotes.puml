@@ -1,0 +1,16 @@
+@startuml
+package "frontend (React + Vite)" { [Home/Autenticação] as UI;[Dashboard/Pedidos] as Dash }
+package "backend (Spring Boot MVC)" {
+ [ApiController] as Controller
+ [SecurityConfig] as Security
+ [Entidades JPA] as Model
+ [Repositories] as Repo
+}
+database "Supabase PostgreSQL" as DB
+UI --> Controller : HTTPS/JSON
+Dash --> Controller : HTTPS/JSON
+Controller --> Security : autenticação
+Controller --> Repo : regras/endpoints
+Repo --> Model
+Repo --> DB : JDBC
+@enduml
